@@ -1,6 +1,5 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import * as path from 'path';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -14,11 +13,24 @@ export function activate(context: vscode.ExtensionContext) {
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
 	const compile = vscode.commands.registerCommand('Buttons.compile', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		const terminal = vscode.window.activeTerminal || vscode.window.createTerminal('Compile Bash');
+		const editor = vscode.window.activeTextEditor;
+
+		if (!editor) {
+			vscode.window.showErrorMessage('No file is open.');
+			return;
+		}
+
+		const filePath = editor.document.uri.fsPath;
+		const folderPath = path.dirname(filePath);
+
+		const terminal = vscode.window.createTerminal({
+			name: 'Compile',
+			cwd: folderPath
+		});
 		terminal.show();
 		terminal.sendText('g++ main.cpp -o main.exe');
+
+
 	});
 
 	const play = vscode.commands.registerCommand('Buttons.start', () => {

@@ -1,29 +1,52 @@
-# Buttons README
+# Buttons
 
-Addes a compile button and a runn button for c/c++
+`Buttons` is a simple VS Code extension that adds two toolbar buttons for small C/C++ projects:
+
+- `Compile` builds `main.cpp` into `main.exe`
+- `Play` runs `./main.exe` in the terminal
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Adds `Compile` and `Play` buttons to the editor title bar
+- Opens the compile terminal in the folder of the currently open file
+- Sends terminal commands directly from the extension
+  
+![Buttons screenshot](Images/Buttons.png)
 
-For example if there is an image subfolder under your extension project workspace:
+## How It Works
 
-![images](images/Buttons.png)
+1. Open a C or C++ source file.
+2. Click `Compile` to run:
+
+```bash
+g++ main.cpp -o main.exe
+```
+
+3. Click `Play` to run:
+
+```bash
+./main.exe
+```
 
 ## Requirements
 
-A pc with a os and VS Code downloaded
+- VS Code
+- A working `g++` installation available on your `PATH`
+- A terminal that supports `./main.exe` for the run command
 
-## Known Issues
+## Current Limitations
 
-Only works in `bash`
+- The compile command currently builds `main.cpp` specifically
+- The run command assumes the executable is named `main.exe`
+- The run command is currently written for `bash`-style terminals
 
 ## Release Notes
 
-Hello
+### 1.0.1
+
+- Added `Compile` and `Play` editor toolbar buttons
+- Compile opens in the active file's folder
 
 ### 1.0.0
 
-Compile and Run button
-
----
+- Initial release
