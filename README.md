@@ -10,8 +10,6 @@
 - Adds `Compile` and `Play` buttons to the editor title bar
 - Opens the compile terminal in the folder of the currently open file
 - Sends terminal commands directly from the extension
-  
-![Buttons screenshot](Images/Buttons.png)
 
 ## How It Works
 
