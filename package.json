@@ -14,10 +14,29 @@
   "contributes": {
     "commands": [
       {
-        "command": "Buttons.helloWorld",
-        "title": "Hello World"
+        "command": "Buttons.compile",
+        "title": "Compile",
+        "icon": "$(beaker)"
+      },
+      {
+        "command": "Buttons.start",
+        "title": "Play",
+        "icon": "$(play)"
       }
-    ]
+
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "Buttons.compile",
+          "group": "navigation"
+        },
+        {
+          "command": "Buttons.start",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

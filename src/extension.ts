@@ -13,14 +13,21 @@ export function activate(context: vscode.ExtensionContext) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('Buttons.helloWorld', () => {
+	const compile = vscode.commands.registerCommand('Buttons.compile', () => {
 		// The code you place here will be executed every time your command is executed
 		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello VS Code!');
-		vscode.env.openExternal(vscode.Uri.parse('https://www.google.com/search?q=cute+animals&tbm=isch'));
+		const terminal = vscode.window.activeTerminal || vscode.window.createTerminal('Compile Bash');
+		terminal.show();
+		terminal.sendText('g++ main.cpp -o main.exe');
 	});
 
-	context.subscriptions.push(disposable);
+	const play = vscode.commands.registerCommand('Buttons.start', () => {
+		const terminal = vscode.window.activeTerminal || vscode.window.createTerminal('Running Bash');
+		terminal.show();
+		terminal.sendText('./main.exe')
+	})
+
+	context.subscriptions.push(compile);
 }
 
 // This method is called when your extension is deactivated

@@ -1,9 +1,9 @@
-# Change Log
+# change log
 
-All notable changes to the "Buttons" extension will be documented in this file.
+all notable changes to the "buttons" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+check [keep a changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [unreleased]
 
-- Initial release
+- initial release
